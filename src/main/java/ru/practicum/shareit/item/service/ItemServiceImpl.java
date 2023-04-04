@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Service
 @Slf4j
-public class ItemServiceImpl implements ItemService{
+public class ItemServiceImpl implements ItemService {
 	ItemRepository itemRepository;
 	UserRepository userRepository;
 
@@ -51,7 +51,7 @@ public class ItemServiceImpl implements ItemService{
 				() -> new ItemDoesNotExistException("Item with id = " + itemId + " does not exist.")
 		);
 
-		if(!item.get().getOwner().equals(userId))
+		if (!item.get().getOwner().equals(userId))
 			throw new UserIsNotOwnerException("Only owners can edit an item.");
 
 		updateItem(item.get(), itemDto);

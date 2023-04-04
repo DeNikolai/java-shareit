@@ -16,7 +16,7 @@ public class InMemoryUserRepository implements UserRepository {
 
 	private long idCounter;
 
-	public InMemoryUserRepository () {
+	public InMemoryUserRepository() {
 		users = new HashMap<>();
 		idCounter = 0;
 	}

@@ -60,7 +60,7 @@ public class InMemoryItemRepository implements ItemRepository {
 
 	@Override
 	public List<Item> getOwnerItems(long ownerId) {
-		log.debug("Request to get owner items from repository. Owner id = {}." , ownerId);
+		log.debug("Request to get owner items from repository. Owner id = {}.", ownerId);
 
 		return items.values().stream()
 				.filter(item -> item.getOwner().equals(ownerId))

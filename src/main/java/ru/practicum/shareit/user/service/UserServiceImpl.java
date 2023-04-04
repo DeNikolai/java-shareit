@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
 		users.stream()
 				.filter(user -> user.getName().equals(name))
 				.findAny()
-				.ifPresent( user -> {
+				.ifPresent(user -> {
 					throw new NameIsNotAvailableException("Name " + name + " is not available.");
 				});
 	}
@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
 		users.stream()
 				.filter(user -> user.getEmail().equals(email))
 				.findAny()
-				.ifPresent( user -> {
+				.ifPresent(user -> {
 					throw new EmailIsNotAvailableException("Email " + email + " is not available.");
 				});
 	}
