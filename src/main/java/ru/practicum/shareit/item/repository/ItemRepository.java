@@ -19,4 +19,6 @@ public interface ItemRepository {
 	List<Item> getOwnerItems(long ownerId);
 
 	List<Item> getItemsByText(String text);
+
+	boolean isItemExist(long itemId);
 }

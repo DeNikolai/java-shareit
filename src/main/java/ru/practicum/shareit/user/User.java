@@ -3,20 +3,20 @@ package ru.practicum.shareit.user;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NonNull;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
 @Builder
 public class User {
 	@EqualsAndHashCode.Exclude
-	private long id;
+	private Long id;
 	@NotBlank
-	@NonNull
+	@NotNull
 	private String name;
 	@Email
-	@NonNull
+	@NotNull
 	private String email;
 }

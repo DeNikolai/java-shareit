@@ -79,4 +79,9 @@ public class InMemoryItemRepository implements ItemRepository {
 				)
 				.collect(Collectors.toList());
 	}
+
+	@Override
+	public boolean isItemExist(long itemId) {
+		return items.containsKey(itemId);
+	}
 }

@@ -4,10 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import ru.practicum.shareit.user.User;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Repository
 @Slf4j
@@ -56,5 +53,24 @@ public class InMemoryUserRepository implements UserRepository {
 		log.debug("Request to delete user with id = {} from repository.", id);
 
 		users.remove(id);
+	}
+
+	@Override
+	public boolean isUserExist(long userId) {
+		return users.containsKey(userId);
+	}
+
+	@Override
+	public boolean isNameAvailable(User user) {
+		return users.values().stream()
+				.filter(u -> !Objects.equals(u.getId(), user.getId()))
+				.noneMatch(u -> u.getName().equals(user.getName()));
+	}
+
+	@Override
+	public boolean isEmailAvailable(User user) {
+		return users.values().stream()
+				.filter(u -> !Objects.equals(u.getId(), user.getId()))
+				.noneMatch(u -> u.getEmail().equals(user.getEmail()));
 	}
 }

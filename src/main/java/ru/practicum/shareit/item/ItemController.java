@@ -1,6 +1,6 @@
 package ru.practicum.shareit.item;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.practicum.shareit.item.dto.ItemDto;
 import ru.practicum.shareit.item.service.ItemService;
@@ -10,13 +10,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/items")
+@AllArgsConstructor
 public class ItemController {
-	ItemService itemService;
-
-	@Autowired
-	public ItemController(ItemService itemService) {
-		this.itemService = itemService;
-	}
+	private final ItemService itemService;
 
 	@PostMapping
 	public Item addItem(@RequestBody @Valid Item item,

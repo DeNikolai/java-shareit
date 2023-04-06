@@ -15,4 +15,10 @@ public interface UserRepository {
 	List<User> getUsers();
 
 	void deleteUser(long id);
+
+	boolean isUserExist(long userId);
+
+	boolean isNameAvailable(User user);
+
+	boolean isEmailAvailable(User user);
 }
